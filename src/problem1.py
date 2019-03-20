@@ -3,13 +3,14 @@ Exam 1, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Haozhe Wu.
+"""  # done. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
+
 # -----------------------------------------------------------------------------
-# TODO: 2. Right-click on the  src  folder and
+# done Right-click on the  src  folder and
 #              Mark Directory as ... Sources Root,
 #          if you have not already done so.
 # -----------------------------------------------------------------------------
@@ -118,10 +119,29 @@ def problem1(circle, rectangle, color, length, window):
       :type window:    rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
+    # done. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
+    circle.attach_to(window)
+    rectangle.attach_to(window)
 
+    window.render()
+    point1=rectangle.get_upper_left_corner()
+    point2=rectangle.get_lower_right_corner()
+    rectcenter=rg.Point((point2.x-point1.x)/2+point1.x,(point2.y-point1.y)/2+point1.y)
+    circlecenter=circle.center
+    line=rg.Line(circlecenter,rectcenter)
+    line.thickness=circle.outline_thickness
+    line.color=color
+    line.attach_to(window)
+    mid=line.get_midpoint()
+    start=rg.Point(mid.x,mid.y-length/2)
+    end=rg.Point(mid.x,mid.y+length/2)
+    line1=rg.Line(start,end)
+    line1.color=circle.fill_color
+    line1.thickness=rectangle.outline_thickness+circle.outline_thickness
+    line1.attach_to(window)
+    window.render()
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
