@@ -4,7 +4,7 @@ Exam 1, problem 4.
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
          and Haozhe Wu.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+"""  # done. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -85,6 +85,20 @@ def problem4(point1, point2, n, window):
     # IMPORTANT: For PARTIAL CREDIT, ignore the colors.
     # -------------------------------------------------------------------------
 
+    xdis = (point2.x - point1.x) / (2*n + 1)
+    ydis = (point2.y - point1.y) / (2*n + 1)
+    for k in range(2 * n + 1):
+        point = rg.Point(point1.x + (k + 1) * xdis, point1.y + (k + 1) * ydis)
+        point.attach_to(window)
+        if k >= n:
+            if k <= 2 * n-1:
+                point.fill_color = point1.fill_color
+        else:
+            point.fill_color = point2.fill_color
+    point1.attach_to(window)
+    point2.attach_to(window)
+
+    window.render()
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
