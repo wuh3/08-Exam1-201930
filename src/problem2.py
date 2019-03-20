@@ -3,8 +3,8 @@ Exam 1, problem 2.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Haozhe Wu.
+"""  # done. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -40,7 +40,36 @@ def test_factor_sum():
     print('---------------------------------------------------------')
     print('Testing the   factor_sum   function:')
     print('---------------------------------------------------------')
+    print('Test 1:')
+    expected1=4
+    actual1=factor_sum(25)
+    print('expected:',expected1)
+    print('actual:',actual1)
 
+
+    print('Test 2:')
+    expected2 = 11
+    actual2 = factor_sum(28)
+    print('expected:', expected2)
+    print('actual:', actual2)
+
+    print('Test 3:')
+    expected3 = 4
+    actual3 = factor_sum(27)
+    print('expected:', expected3)
+    print('actual:', actual3)
+
+    print('Test 4:')
+    expected4 = 15
+    actual4 = factor_sum(42)
+    print('expected:', expected4)
+    print('actual:', actual4)
+
+    print('Test 5:')
+    expected5 = 10
+    actual5 = factor_sum(12)
+    print('expected:', expected5)
+    print('actual:', actual5)
     ###########################################################################
     # WRITE YOUR TESTS BELOW HERE:
     ###########################################################################
@@ -70,11 +99,22 @@ def factor_sum(n):
 
        *** ASK FOR AN EXPLANATION IF YOU DO NOT UNDERSTAND THE ABOVE. ***
     """
+    sum=0
+    for k in range(1,n+1):
+
+        if n%k==0:
+            sum=sum+k
+
+    digitsum=sum//10+(sum-sum//10*10)
+
     ###########################################################################
     #  This function is PURPOSELY implemented INCORRECTLY (it just returns 0).
     #  DO NOT IMPLEMENT  factor_sum.  Just leave it as it is (returning 0).
     ###########################################################################
-    return 0
+    return digitsum
     ###########################################################################
     # DO NOT modify the above line of code!
     ###########################################################################
+
+
+main()

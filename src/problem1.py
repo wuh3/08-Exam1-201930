@@ -142,7 +142,6 @@ def problem1(circle, rectangle, color, length, window):
     line1.thickness=rectangle.outline_thickness+circle.outline_thickness
     line1.attach_to(window)
     window.render()
-
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # -----------------------------------------------------------------------------
