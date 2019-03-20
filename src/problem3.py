@@ -3,7 +3,7 @@ Exam 1, problem 3.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
+         and Haozhe Wu.
 """  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import testing_helper
@@ -198,7 +198,13 @@ def problem3a(a, b):
     #    **  For full credit you must appropriately
     #    **  use (call) the appropriate function(s) that are DEFINED ABOVE.
     ###########################################################################
-
+    sum=0
+    for k in range(a,a**b+1):
+        if a**b+1-a>1:
+            if is_prime(k)==True:
+                if is_prime(sum_of_digits(k))==True:
+                    sum=sum+k
+    return sum
 
 def run_test_problem3b():
     """ Tests the   problem3b   function. """
